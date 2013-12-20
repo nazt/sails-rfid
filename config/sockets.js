@@ -21,45 +21,21 @@ module.exports.sockets = {
       console.log('onConnection')
       var numberOfSockets = Object.keys(socket.namespace.manager.sockets.sockets).length
       socket.emit('connectedUsers', { count: numberOfSockets });
-      // socket.broadcast.emit('connectedUsers', { count: numberOfSockets });
-      // socket.setMaxListeners(0);
-
-      // socket.emit('news', { hello: 'world' });
-      // socket.emit('init', { data: 'what' });
-      // socket.on('my other event', function (data) {
-      //   console.log("serverEventData: " + data);
-      // });
-
-      // socket.on('deleteUser', function(user){
-      //   console.log("onUserDeleted broadcasted");
-      //   socket.broadcast.emit('onUserDeleted', user);
-      // });
-
-      // socket.on('addUser', function(user){
-      //   console.log("onUserAdded broadcasted");
-      //   socket.broadcast.emit('onUserAdded', user);
-      // });
-
-      // socket.on('updateUser', function(user){
-      //   console.log("onUserUpdated broadcasted");
-      //   socket.broadcast.emit('onUserUpdated', user);
-      // });
-
-      // socket.on('disconnect', function () {
-      //   socket.emit('connectedUsers', { count: numberOfSockets-1 });
-      //   socket.broadcast.emit('connectedUsers', { count: numberOfSockets-1 });
-      // });
+      socket.broadcast.emit('connectedUsers', { count: numberOfSockets });
 
       // socket.removeListener("connect", function(){});
       // socket.removeListener("deleteUser", function(){});
       // socket.removeListener("addUser", function(){});
-    // By default: do nothing
+    // By default: do nothing≈
     // This is a good place to subscribe a new socket to a room, inform other users that
     // someone new has come online, or any other custom socket.io logic
   },
 
   // This custom onDisconnect function will be run each time a socket disconnects
   onDisconnect: function(session, socket) {
+      var numberOfSockets = Object.keys(socket.namespace.manager.sockets.sockets).length
+      socket.emit('connectedUsers', { count: numberOfSockets });
+      socket.broadcast.emit('connectedUsers', { count: numberOfSockets });
 
     // By default: do nothing
     // This is a good place to broadcast a disconnect message, or any other custom socket.io logic
