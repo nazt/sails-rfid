@@ -8,7 +8,6 @@
         <span class="icon-bar"></span>
       </button>
 
-      <gravatar email="user.email" data-ng-model="user" size="200" class="img-circle pull-left" style="width: 40px; height: 40px"></gravatar>
       <a class="brand" href="#">
         Angular Sails Socket.io Demo
         <span ng-controller="MainCtrl" data-ng-show="connectedUsers.count">(
@@ -18,11 +17,6 @@
 
       <div class="nav-collapse collapse">
         <div class="authStatus">
-          <p class="navbar-text pull-right" data-ng-show="user">
-            Logged in as <a ng-href="#/users/show/{{user.id}}" target="_self" class="navbar-link">{{ user.name }}</a>
-            &nbsp;|&nbsp; <a href="" ng-click="logout()" class="navbar-link">Sign out</a>
-          </p>
-
           <p class="navbar-text pull-right" data-ng-hide="user">
             <a ng-href="#/login" class="navbar-link">Sign in</a>
           </p>
@@ -33,10 +27,12 @@
           <li data-ng-class="{'active':getClass('/')}"><a ng-href="#/">Home</a></li>
           <li data-ng-class="{'active':getClass('/view1')}"><a ng-href="#/view1">View1</a></li>
           <li data-ng-class="{'active':getClass('/view2')}"><a ng-href="#/view2">View2</a></li>
-          <li data-ng-class="{'active':getClass('/users')}"><a ng-href="#/users">Users</a></li>
-          <li data-ng-class="{'active':getClass('/remotepartial')}"><a ng-href="#/remotepartial">Remote Partial</a></li>
+          <li data-ng-class="{'active':getClass('/view3')}"><a ng-href="#/view2">View3</a></li>
+          <li data-ng-class="{'active':getClass('/view4')}"><a ng-href="#/view2">View4</a></li>
+          <li data-ng-class="{'active':getClass('/view5')}"><a ng-href="#/view2">View5</a></li>
         </ul>
       </div>
+
     </div>
 
   </div>
