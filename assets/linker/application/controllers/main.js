@@ -6,8 +6,12 @@
   MainCtrl = (function() {
     function MainCtrl() {
       Application.Controllers.controller("MainCtrl", [
-        "$scope", function($scope) {
-          console.log("IN MAIN CTRL")
+        "$scope", "$socket", function($scope, $socket) {
+
+          $socket.on('connectedUsers', function(data) {
+            $scope.connectedUsers = data;
+          })
+          
           $scope.foo = "booyah";
         }
       ]);

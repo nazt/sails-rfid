@@ -20,7 +20,7 @@
         <div class="authStatus">
           <p class="navbar-text pull-right" data-ng-show="user">
             Logged in as <a ng-href="#/users/show/{{user.id}}" target="_self" class="navbar-link">{{ user.name }}</a>
-            &nbsp;|&nbsp; <a href="" ng-controller="LoginCtrl" ng-click="logout()" class="navbar-link">Sign out</a>
+            &nbsp;|&nbsp; <a href="" ng-click="logout()" class="navbar-link">Sign out</a>
           </p>
 
           <p class="navbar-text pull-right" data-ng-hide="user">
@@ -28,9 +28,8 @@
           </p>
         </div>
 
-        <div data-ng-controller="UsersController"></div>
 
-        <ul class="nav" data-ng-controller="NavbarController">
+        <ul class="nav"> 
           <li data-ng-class="{'active':getClass('/')}"><a ng-href="#/">Home</a></li>
           <li data-ng-class="{'active':getClass('/view1')}"><a ng-href="#/view1">View1</a></li>
           <li data-ng-class="{'active':getClass('/view2')}"><a ng-href="#/view2">View2</a></li>
