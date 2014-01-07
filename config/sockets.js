@@ -7,7 +7,6 @@
  * For more information on using Sails with Sockets, check out:
  * http://sailsjs.org/#documentation
  */
-var prettyjson = require('prettyjson');
 
 
 module.exports.sockets = {
@@ -22,6 +21,7 @@ module.exports.sockets = {
       var numberOfSockets = Object.keys(socket.namespace.manager.sockets.sockets).length
       socket.emit('connectedUsers', { count: numberOfSockets });
       socket.broadcast.emit('connectedUsers', { count: numberOfSockets });
+      socket.broadcast.emit('rfid', { card_id: 'hello' });
 
       // socket.removeListener("connect", function(){});
       // socket.removeListener("deleteUser", function(){});

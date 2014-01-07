@@ -11,6 +11,10 @@
           $socket.on('connectedUsers', function(data) {
             $scope.connectedUsers = data;
           })
+
+          $socket.on('rfid', function (data) {
+            $scope.card_id = data.card_id
+          })
           
           $scope.foo = "booyah";
         }
